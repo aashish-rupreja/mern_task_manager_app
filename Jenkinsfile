@@ -35,5 +35,12 @@ pipeline {
                 }
             }
         }
+
+        stage('Build Docker Images') {
+            steps {
+                sh 'docker build -t mern-task-manager-backend:latest ./backend'
+                sh 'docker build -t mern-task-manager-frontend:latest ./frontend'
+            }
+        }
     }
 }
