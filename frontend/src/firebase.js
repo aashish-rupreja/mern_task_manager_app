@@ -4,14 +4,13 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: "task-manager-c9dda.firebaseapp.com",
-  projectId: "task-manager-c9dda",
-  storageBucket: "task-manager-c9dda.appspot.com",
-  messagingSenderId: "252343493674",
-  appId: "1:252343493674:web:15f42600d70c7ce99e8f53",
+  authDomain: "mern-task-manager-ee0bb.firebaseapp.com",
+  projectId: "mern-task-manager-ee0bb",
+  storageBucket: "mern-task-manager-ee0bb.firebasestorage.app",
+  messagingSenderId: "510424503823",
+  appId: "1:510424503823:web:21dceb84dd68c3b54ab57a"
 };
 
 // Initialize Firebase
