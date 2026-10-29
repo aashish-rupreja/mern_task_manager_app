@@ -1,0 +1,39 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: mern_task_manager_app-frontend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5173
+          env:
+            - name: VITE_BACKEND_BASE_URL
+              value: "http://localhost:5000"
+            - name: VITE_FIREBASE_API_KEY
+              value: "AIzaSyCbHLx2YNXmiqRdP5mBouripZKXz8hH6rc"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  type: NodePort
+  selector:
+    app: frontend
+  ports:
+    - port: 5173
+      targetPort: 5173
+      nodePort: 30080
