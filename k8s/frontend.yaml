@@ -1,4 +1,3 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,11 +18,9 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5173
-          env:
-            - name: VITE_BACKEND_BASE_URL
-              value: "http://localhost:5000"
-            - name: VITE_FIREBASE_API_KEY
-              value: "AIzaSyCbHLx2YNXmiqRdP5mBouripZKXz8hH6rc"
+          envFrom:
+            - configMapRef:
+                name: frontend-config
 ---
 apiVersion: v1
 kind: Service
