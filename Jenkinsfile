@@ -42,5 +42,12 @@ pipeline {
                 sh 'docker build -t mern-task-manager-frontend:latest ./frontend'
             }
         }
+
+        stage('Trivy Security Scan') {
+            steps {
+                sh 'trivy image --severity HIGH,CRITICAL mern-task-manager-backend:latest'
+                sh 'trivy image --severity HIGH,CRITICAL mern-task-manager-frontend:latest'
+            }
+        }
     }
 }
