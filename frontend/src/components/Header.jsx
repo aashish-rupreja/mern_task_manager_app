@@ -40,7 +40,7 @@ const Header = () => {
   });
 
   return (
-    <div className="bg-blue-600">
+    <div className="bg-red-600">
       <div className="flex justify-between items-center text-white p-4">
         <div className="flex items-center">
           <Link to={"/"}>
